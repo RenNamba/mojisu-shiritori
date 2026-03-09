@@ -1,3 +1,5 @@
+import { CONDITION_TYPE } from "../constants/gameConstants";
+
 // 小文字→大文字変換マップ
 const SMALL_TO_LARGE = {
   ぁ: "あ",
@@ -9,15 +11,6 @@ const SMALL_TO_LARGE = {
   ゃ: "や",
   ゅ: "ゆ",
   ょ: "よ",
-  ァ: "ア",
-  ィ: "イ",
-  ゥ: "ウ",
-  ェ: "エ",
-  ォ: "オ",
-  ッ: "ツ",
-  ャ: "ヤ",
-  ュ: "ユ",
-  ョ: "ヨ",
 };
 
 // 頭文字を取得する
@@ -43,21 +36,21 @@ export const validateWord = (word, cardConfig, history) => {
 
   // 3. 文字数チェック
   const len = word.length;
-  if (cardConfig.conditionType === "exact") {
+  if (cardConfig.conditionType === CONDITION_TYPE.EXACT) {
     if (len !== cardConfig.value) {
       return {
         valid: false,
         message: `${cardConfig.value}文字で入力してください`,
       };
     }
-  } else if (cardConfig.conditionType === "range") {
+  } else if (cardConfig.conditionType === CONDITION_TYPE.RANGE) {
     if (len < cardConfig.min || len > cardConfig.max) {
       return {
         valid: false,
         message: `${cardConfig.min}〜${cardConfig.max}文字で入力してください`,
       };
     }
-  } else if (cardConfig.conditionType === "min") {
+  } else if (cardConfig.conditionType === CONDITION_TYPE.MIN) {
     if (len < cardConfig.value) {
       return {
         valid: false,

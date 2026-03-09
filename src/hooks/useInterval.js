@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { GAME_STATUS } from "../constants/gameConstants";
 
-export const useTimer = (gameStatus, onTick) => {
+export const useInterval = (gameStatus, onTick) => {
   const intervalRef = useRef(null);
   const onTickRef = useRef(onTick);
 
@@ -9,7 +10,7 @@ export const useTimer = (gameStatus, onTick) => {
   }, [onTick]);
 
   useEffect(() => {
-    if (gameStatus !== "playing") {
+    if (gameStatus !== GAME_STATUS.PLAYING) {
       clearInterval(intervalRef.current);
       return;
     }
