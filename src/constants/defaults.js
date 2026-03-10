@@ -5,6 +5,7 @@ import {
   DEFAULT_GAME_TIME,
 } from "./gameConstants";
 
+// デフォルト設定
 export const DEFAULT_SETTINGS = {
   players: {
     A: { name: "プレイヤーA" },
@@ -100,6 +101,7 @@ export const DEFAULT_SETTINGS = {
   },
 };
 
+// ゲームの初期状態
 export const INITIAL_GAME_STATE = {
   gameStatus: GAME_STATUS.COUNTDOWN,
   currentPlayer: PLAYER.A,

@@ -1,3 +1,4 @@
+// ゲームの状態
 export const GAME_STATUS = {
   COUNTDOWN: "countdown",
   PLAYING: "playing",
@@ -7,15 +8,23 @@ export const GAME_STATUS = {
   FINISHED: "finished",
 };
 
+// カードの文字数条件タイプ
 export const CONDITION_TYPE = {
   EXACT: "exact",
   RANGE: "range",
   MIN: "min",
 };
 
+// プレイヤー識別子
 export const PLAYER = {
   A: "A",
   B: "B",
 };
 
-export const DEFAULT_GAME_TIME = 300; // 5分 = 300秒
+// デフォルトゲーム時間（秒）
+export const DEFAULT_GAME_TIME = 300;
+
+// ローカルストレージキー
+export const LOCAL_STORAGE_KEYS = {
+  SETTINGS: "settings",
+};
