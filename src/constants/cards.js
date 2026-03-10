@@ -1,3 +1,4 @@
+// カードの一覧
 export const CARD_ORDER = [
   "c2",
   "c3",
@@ -13,6 +14,7 @@ export const CARD_ORDER = [
   "cK",
 ];
 
+// カードに対応する数値
 export const CARD_EXACT_VALUES = {
   c2: 2,
   c3: 3,
@@ -28,6 +30,7 @@ export const CARD_EXACT_VALUES = {
   cK: 13,
 };
 
+// カードの表示名
 export const CARD_DISPLAY_NAMES = {
   c2: "2",
   c3: "3",
