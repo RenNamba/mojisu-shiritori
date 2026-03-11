@@ -44,6 +44,7 @@ const WordInput = ({ gameState, setGameState, settings }) => {
           onChange={handleWordChange}
           onKeyDown={handleKeyDown}
           disabled={!isActive}
+          fontSize="16px"
         />
         <Button onClick={handleConfirm} disabled={!isActive}>
           確定

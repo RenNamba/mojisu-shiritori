@@ -73,6 +73,7 @@ const PlayerSettings = ({ settings, setSettings }) => {
             value={settings.players.A.name}
             onChange={(e) => handleNameChange(PLAYER.A, e.target.value)}
             onBlur={(e) => handleNameBlur(PLAYER.A, e.target.value)}
+            fontSize="16px"
           />
         </Stack>
         <Stack direction="row" align="center">
@@ -83,6 +84,7 @@ const PlayerSettings = ({ settings, setSettings }) => {
             value={settings.players.B.name}
             onChange={(e) => handleNameChange(PLAYER.B, e.target.value)}
             onBlur={(e) => handleNameBlur(PLAYER.B, e.target.value)}
+            fontSize="16px"
           />
         </Stack>
         <SelectRoot
