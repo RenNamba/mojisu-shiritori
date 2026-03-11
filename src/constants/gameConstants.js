@@ -28,3 +28,9 @@ export const DEFAULT_GAME_TIME = 300;
 export const LOCAL_STORAGE_KEYS = {
   SETTINGS: "settings",
 };
+
+// ゲーム終了の理由
+export const END_REASON = {
+  TIMEOUT: "timeout",
+  N_ENDING: "n-ending",
+};
