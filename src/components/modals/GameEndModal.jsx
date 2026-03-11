@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { GAME_STATUS, END_REASON, PLAYER } from "../../constants/gameConstants";
 
 const GAME_END_MESSAGES = {
-  [END_REASON.TIMEOUT]: (winner) => `時間切れ！${winner}の勝利！`,
-  [END_REASON.N_ENDING]: (winner) => `「ん」で終わった！${winner}の勝利！`,
+  [END_REASON.TIMEOUT]: "時間切れ！",
+  [END_REASON.N_ENDING]: "「ん」で終わった！",
 };
 
 const GameEndModal = ({ gameState, settings }) => {
   const navigate = useNavigate();
   const { gameStatus, endReason, currentPlayer, timers } = gameState;
 
-  // 勝者は時間切れの場合は相手プレイヤー、「ん」終わりの場合も相手プレイヤー
   const loser = currentPlayer;
   const winner = loser === PLAYER.A ? PLAYER.B : PLAYER.A;
   const winnerName = settings.players[winner].name;
@@ -45,12 +44,16 @@ const GameEndModal = ({ gameState, settings }) => {
       bottom={0}
       bg="blackAlpha.700"
       display="flex"
+      flexDirection="column"
       alignItems="center"
       justifyContent="center"
       zIndex={1000}
     >
       <Text fontSize="4xl" fontWeight="bold" color="white" textAlign="center">
-        {GAME_END_MESSAGES[endReason]?.(winnerName)}
+        {GAME_END_MESSAGES[endReason]}
+      </Text>
+      <Text fontSize="4xl" fontWeight="bold" color="white" textAlign="center">
+        ゲーム終了！
       </Text>
     </Box>
   );
