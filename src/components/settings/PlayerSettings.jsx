@@ -3,6 +3,7 @@ import {
   Heading,
   Input,
   Stack,
+  Text,
   createListCollection,
 } from "@chakra-ui/react";
 import {
@@ -14,6 +15,9 @@ import {
   SelectValueText,
 } from "../../components/ui/select";
 import { PLAYER } from "../../constants/gameConstants";
+import { DEFAULT_SETTINGS } from "../../constants/defaults";
+
+const MAX_PLAYER_NAME_LENGTH = 7;
 
 const PlayerSettings = ({ settings, setSettings }) => {
   // プレイヤー名の変更を処理する関数
@@ -27,6 +31,15 @@ const PlayerSettings = ({ settings, setSettings }) => {
     }));
   };
 
+  // プレイヤー名の入力が空になった場合や長すぎる場合に処理する関数
+  const handleNameBlur = (player, name) => {
+    if (name.length === 0) {
+      handleNameChange(player, DEFAULT_SETTINGS.players[player].name);
+    } else if (name.length > MAX_PLAYER_NAME_LENGTH) {
+      handleNameChange(player, name.slice(0, MAX_PLAYER_NAME_LENGTH));
+    }
+  };
+
   // 先攻プレイヤーの変更を処理する関数
   const handleFirstPlayerChange = (value) => {
     setSettings((prev) => ({
@@ -35,11 +48,11 @@ const PlayerSettings = ({ settings, setSettings }) => {
     }));
   };
 
-  // 先攻プレイヤーの選択肢をプレイヤー名から生成
+  // 先攻プレイヤーの選択肢を生成
   const options = createListCollection({
     items: [
-      { label: settings.players.A.name, value: PLAYER.A },
-      { label: settings.players.B.name, value: PLAYER.B },
+      { label: DEFAULT_SETTINGS.players.A.name, value: PLAYER.A },
+      { label: DEFAULT_SETTINGS.players.B.name, value: PLAYER.B },
     ],
   });
 
@@ -48,26 +61,41 @@ const PlayerSettings = ({ settings, setSettings }) => {
       <Heading size="md" mb={4}>
         プレイヤー設定
       </Heading>
+      <Text fontSize="sm" color="gray.500" mb={2}>
+        {MAX_PLAYER_NAME_LENGTH}文字以内で入力してください。
+      </Text>
       <Stack gap={2}>
-        <Input
-          placeholder="プレイヤーA"
-          value={settings.players.A.name}
-          onChange={(e) => handleNameChange(PLAYER.A, e.target.value)}
-        />
-        <Input
-          placeholder="プレイヤーB"
-          value={settings.players.B.name}
-          onChange={(e) => handleNameChange(PLAYER.B, e.target.value)}
-        />
+        <Stack direction="row" align="center">
+          <Text whiteSpace="nowrap" mr={2}>
+            {DEFAULT_SETTINGS.players.A.name}
+          </Text>
+          <Input
+            value={settings.players.A.name}
+            onChange={(e) => handleNameChange(PLAYER.A, e.target.value)}
+            onBlur={(e) => handleNameBlur(PLAYER.A, e.target.value)}
+          />
+        </Stack>
+        <Stack direction="row" align="center">
+          <Text whiteSpace="nowrap" mr={2}>
+            {DEFAULT_SETTINGS.players.B.name}
+          </Text>
+          <Input
+            value={settings.players.B.name}
+            onChange={(e) => handleNameChange(PLAYER.B, e.target.value)}
+            onBlur={(e) => handleNameBlur(PLAYER.B, e.target.value)}
+          />
+        </Stack>
         <SelectRoot
           collection={options}
           value={[settings.firstPlayer]}
           onValueChange={(e) => handleFirstPlayerChange(e.value[0])}
         >
           <Stack direction="row" align="center">
-            <SelectLabel mb={0}>先攻</SelectLabel>
+            <SelectLabel whiteSpace="nowrap" mr={2}>
+              先攻
+            </SelectLabel>
             <SelectTrigger width="200px">
-              <SelectValueText placeholder="先攻を選択" />
+              <SelectValueText />
             </SelectTrigger>
           </Stack>
           <SelectContent>
