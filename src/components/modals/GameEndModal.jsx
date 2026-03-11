@@ -1,7 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { GAME_STATUS, END_REASON, Player } from "../../constants/gameConstants";
+import { GAME_STATUS, END_REASON, PLAYER } from "../../constants/gameConstants";
 
 const GAME_END_MESSAGES = {
   [END_REASON.TIMEOUT]: (winner) => `時間切れ！${winner}の勝利！`,
@@ -14,7 +14,7 @@ const GameEndModal = ({ gameState, settings }) => {
 
   // 勝者は時間切れの場合は相手プレイヤー、「ん」終わりの場合も相手プレイヤー
   const loser = currentPlayer;
-  const winner = loser === Player.A ? Player.B : Player.A;
+  const winner = loser === PLAYER.A ? PLAYER.B : PLAYER.A;
   const winnerName = settings.players[winner].name;
 
   useEffect(() => {
