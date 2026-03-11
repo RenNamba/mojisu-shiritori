@@ -31,10 +31,12 @@ const HistoryList = ({ history, settings }) => {
                   justify="space-between"
                   py={1}
                 >
-                  <Text fontSize="sm" color="gray.500">
+                  <Text fontSize="xs" color="gray.500" flex={1}>
                     {settings.players[item.player].name}
                   </Text>
-                  <Text fontSize="sm">{item.word}</Text>
+                  <Text fontSize="xs" textAlign="right" flex={2} mr={3}>
+                    {item.word}
+                  </Text>
                 </Stack>
               ))
             )}
