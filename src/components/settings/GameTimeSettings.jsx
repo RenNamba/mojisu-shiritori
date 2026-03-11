@@ -1,17 +1,33 @@
-import { Box, Heading, Input, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Stack,
+  Text,
+  createListCollection,
+} from "@chakra-ui/react";
+import {
+  SelectContent,
+  SelectItem,
+  SelectRoot,
+  SelectTrigger,
+  SelectValueText,
+} from "../../components/ui/select";
 
 const MIN_MINUTES = 1;
 const MAX_MINUTES = 30;
 
+const gameTimeOptions = createListCollection({
+  items: Array.from({ length: MAX_MINUTES - MIN_MINUTES + 1 }, (_, i) => ({
+    label: MIN_MINUTES + i,
+    value: (MIN_MINUTES + i) * 60, // ゲーム中では秒で管理するため変換する
+  })),
+});
+
 const GameTimeSettings = ({ settings, setSettings }) => {
-  // ゲーム時間の変更を処理する関数
-  // ゲーム時間は分単位で入力されるため、秒に変換して保存する
-  const handleGameTimeChange = (e) => {
-    const minutes = Number(e.target.value);
-    if (minutes < MIN_MINUTES || minutes > MAX_MINUTES) return;
+  const handleGameTimeChange = (value) => {
     setSettings((prev) => ({
       ...prev,
-      gameTime: minutes * 60,
+      gameTime: value,
     }));
   };
 
@@ -21,14 +37,23 @@ const GameTimeSettings = ({ settings, setSettings }) => {
         ゲーム時間設定
       </Heading>
       <Stack direction="row" align="center">
-        <Input
-          type="number"
-          min={MIN_MINUTES}
-          max={MAX_MINUTES}
-          value={settings.gameTime / 60}
-          onChange={handleGameTimeChange}
-          width="100px"
-        />
+        <SelectRoot
+          collection={gameTimeOptions}
+          value={[settings.gameTime]}
+          onValueChange={(e) => handleGameTimeChange(Number(e.value[0]))}
+          width="120px"
+        >
+          <SelectTrigger>
+            <SelectValueText />
+          </SelectTrigger>
+          <SelectContent>
+            {gameTimeOptions.items.map((option) => (
+              <SelectItem key={option.value} item={option}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </SelectRoot>
         <Text>分</Text>
       </Stack>
     </Box>
