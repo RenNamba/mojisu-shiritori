@@ -43,7 +43,7 @@ const CountdownModal = ({ gameState, setGameState, settings }) => {
       zIndex={1000}
     >
       <Text fontSize="8xl" fontWeight="bold" color="white">
-        {count === 0 ? "スタート！" : count}
+        {count <= 0 ? "スタート！" : count}
       </Text>
     </Box>
   );
