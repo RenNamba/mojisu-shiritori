@@ -65,7 +65,7 @@ const PlayerSettings = ({ settings, setSettings }) => {
           onValueChange={(e) => handleFirstPlayerChange(e.value[0])}
         >
           <Stack direction="row" align="center">
-            <SelectLabel mb={0}>先攻プレイヤー</SelectLabel>
+            <SelectLabel mb={0}>先攻</SelectLabel>
             <SelectTrigger width="200px">
               <SelectValueText placeholder="先攻を選択" />
             </SelectTrigger>
