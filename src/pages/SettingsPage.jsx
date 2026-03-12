@@ -20,13 +20,13 @@ const SettingsPage = () => {
     <Box maxW="600px" mx="auto" p={6}>
       <Heading mb={6}>設定</Heading>
       <VStack gap={6} align="stretch">
-        <Box borderWidth="1px" borderRadius="lg" p={4}>
+        <Box bg="white" shadow="sm" borderRadius="xl" p={4}>
           <PlayerSettings settings={settings} setSettings={setSettings} />
         </Box>
-        <Box borderWidth="1px" borderRadius="lg" p={4}>
+        <Box bg="white" shadow="sm" borderRadius="xl" p={4}>
           <GameTimeSettings settings={settings} setSettings={setSettings} />
         </Box>
-        <Box borderWidth="1px" borderRadius="lg" p={4}>
+        <Box bg="white" shadow="sm" borderRadius="xl" p={4}>
           <CardSettings settings={settings} setSettings={setSettings} />
         </Box>
         <SettingsActions settings={settings} onReset={handleReset} />

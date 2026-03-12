@@ -57,14 +57,14 @@ const JudgeButtons = ({
 
   return (
     <Stack direction="row" justify="center" gap={4}>
-      <Button colorScheme="green" onClick={handleValid}>
+      <Button bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleValid}>
         有効
       </Button>
-      <Button colorScheme="red" onClick={handleInvalid}>
+      <Button bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleInvalid}>
         無効
       </Button>
       {showDeliberation && (
-        <Button colorScheme="yellow" onClick={handleDeliberation}>
+        <Button bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleDeliberation}>
           審議
         </Button>
       )}

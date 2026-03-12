@@ -20,7 +20,7 @@ const PlayAreaInfo = ({ gameState, settings }) => {
   const cardConfig = currentCard ? settings.cards[currentCard] : null;
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" p={4} mb={4}>
+    <Box bg="white" shadow="sm" borderRadius="xl" p={4} mb={4}>
       <Stack direction="row" justify="space-around">
         <Box textAlign="center">
           <Text fontSize="sm" color="gray.500">

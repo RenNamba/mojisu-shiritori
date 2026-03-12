@@ -24,7 +24,7 @@ const DeliberationModal = ({ gameState, setGameState, settings }) => {
 
   return (
     <ModalOverlay>
-      <Box bg="white" borderRadius="lg" p={8} minW="300px" position="relative">
+      <Box bg="white" shadow="lg" borderRadius="2xl" p={8} minW="300px" position="relative">
         <CloseButton position="absolute" top={2} right={2} size="sm" onClick={handleClose} />
         <Heading size="md" mb={4} textAlign="center">
           審議
@@ -32,7 +32,7 @@ const DeliberationModal = ({ gameState, setGameState, settings }) => {
         <Text fontSize="xl" fontWeight="bold" textAlign="center" mb={4}>
           {gameState.currentWord}
         </Text>
-        <Button width="100%" mb={4} onClick={handleSearch}>
+        <Button width="100%" mb={4} bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleSearch}>
           Googleで検索
         </Button>
         <JudgeButtons

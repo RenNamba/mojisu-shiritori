@@ -15,7 +15,7 @@ const SettingsActions = ({ settings, onReset }) => {
       <Button variant="outline" onClick={onReset}>
         デフォルトに戻す
       </Button>
-      <Button onClick={handleStart}>ゲーム開始</Button>
+      <Button bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleStart}>ゲームスタート</Button>
     </Stack>
   );
 };

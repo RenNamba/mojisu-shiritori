@@ -10,13 +10,14 @@ const formatTime = (seconds) => {
 const PlayerTimer = ({ name, time, isActive }) => {
   return (
     <Box
-      borderWidth="1px"
-      borderRadius="lg"
+      bg={isActive ? "blue.50" : "white"}
+      shadow="sm"
+      borderRadius="xl"
+      borderWidth="2px"
+      borderColor={isActive ? "blue.400" : "transparent"}
       p={4}
       flex={1}
       textAlign="center"
-      borderColor={isActive ? "blue.500" : "gray.200"}
-      bg={isActive ? "blue.50" : "white"}
     >
       <Text fontWeight="bold">{name}</Text>
       <Text fontSize="2xl">{formatTime(time)}</Text>

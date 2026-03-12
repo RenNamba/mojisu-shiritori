@@ -46,7 +46,7 @@ const WordInput = ({ gameState, setGameState, settings }) => {
           disabled={!isActive}
           fontSize="16px"
         />
-        <Button onClick={handleConfirm} disabled={!isActive}>
+        <Button bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleConfirm} disabled={!isActive}>
           確定
         </Button>
       </Stack>

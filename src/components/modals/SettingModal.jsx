@@ -16,7 +16,7 @@ const SettingModal = ({ gameState, setGameState }) => {
 
   return (
     <ModalOverlay>
-      <Box bg="white" borderRadius="lg" p={8} minW="300px" position="relative">
+      <Box bg="white" shadow="lg" borderRadius="2xl" p={8} minW="300px" position="relative">
         <CloseButton position="absolute" top={2} right={2} size="sm" onClick={handleClose} />
         <Heading size="md" mb={6} textAlign="center">
           メニュー

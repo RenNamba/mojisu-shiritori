@@ -6,7 +6,7 @@ const HistoryList = ({ history, settings }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" p={4}>
+    <Box bg="white" shadow="sm" borderRadius="xl" p={4}>
       <Collapsible.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
         <Stack direction="row" align="center" justify="space-between">
           <Text fontWeight="bold">履歴</Text>

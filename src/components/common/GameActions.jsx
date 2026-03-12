@@ -18,7 +18,7 @@ const GameActions = () => {
 
   return (
     <Stack direction="column" gap={4}>
-      <Button onClick={handleReplay}>リプレイ</Button>
+      <Button bg="gray.900" color="white" _hover={{ bg: "gray.700" }} onClick={handleReplay}>リプレイ</Button>
       <Button variant="outline" onClick={handleSettings}>
         設定変更
       </Button>

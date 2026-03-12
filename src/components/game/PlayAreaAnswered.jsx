@@ -5,7 +5,7 @@ const PlayAreaAnswered = ({ gameState, setGameState, settings }) => {
   const { currentWord } = gameState;
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" p={4} mb={4}>
+    <Box bg="white" shadow="sm" borderRadius="xl" p={4} mb={4}>
       <Text textAlign="center" fontSize="xl" fontWeight="bold" mb={4}>
         {currentWord}
       </Text>
