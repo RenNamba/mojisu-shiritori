@@ -1,6 +1,5 @@
 import { Button, Stack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { GAME_STATUS } from "../../constants/gameConstants";
 
 const GameActions = () => {
   const navigate = useNavigate();
