@@ -5,7 +5,7 @@ const GameActions = () => {
   const navigate = useNavigate();
 
   const handleReplay = () => {
-    window.location.reload();
+    window.location.href = "/game";
   };
 
   const handleSettings = () => {
