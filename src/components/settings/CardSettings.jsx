@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Box, Heading, Stack, IconButton } from "@chakra-ui/react";
-import { Collapsible } from "@chakra-ui/react";
+import { Box, Collapsible, Heading, IconButton, Stack } from "@chakra-ui/react";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 
 import CardSettingRow from "./CardSettingRow";

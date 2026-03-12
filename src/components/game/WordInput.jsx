@@ -1,5 +1,5 @@
-import { Box, Button, Input, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { Box, Button, Input, Stack, Text } from "@chakra-ui/react";
 import { GAME_STATUS } from "../../constants/gameConstants";
 import { validateWord } from "../../utils/wordUtils";
 

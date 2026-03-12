@@ -1,7 +1,6 @@
-import { Box, IconButton, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { Box, Collapsible, IconButton, Stack, Text } from "@chakra-ui/react";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
-import { Collapsible } from "@chakra-ui/react";
 
 const HistoryList = ({ history, settings }) => {
   const [open, setOpen] = useState(false);

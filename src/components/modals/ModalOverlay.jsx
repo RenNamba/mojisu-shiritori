@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
+// 全画面オーバーレイの共通ラッパー。すべてのモーダルはこのコンポーネントで包む
 const ModalOverlay = ({ children, flexDirection = "row" }) => (
   <Box
     position="fixed"

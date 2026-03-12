@@ -1,5 +1,5 @@
-import { Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { Text } from "@chakra-ui/react";
 import { GAME_STATUS } from "../../constants/gameConstants";
 import { drawCard } from "../../utils/gameUtils";
 import ModalOverlay from "./ModalOverlay";

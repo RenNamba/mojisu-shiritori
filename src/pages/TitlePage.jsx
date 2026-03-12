@@ -1,5 +1,5 @@
-import { Box, Button, Heading, VStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { Box, Button, Heading, VStack } from "@chakra-ui/react";
 
 const TitlePage = () => {
   const navigate = useNavigate();

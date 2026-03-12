@@ -1,6 +1,6 @@
-import { Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Text } from "@chakra-ui/react";
 import { GAME_STATUS, END_REASON, PLAYER } from "../../constants/gameConstants";
 import ModalOverlay from "./ModalOverlay";
 
@@ -20,6 +20,7 @@ const GameEndModal = ({ gameState, settings }) => {
   useEffect(() => {
     if (gameStatus !== GAME_STATUS.FINISHED) return;
 
+    // ゲーム終了メッセージを3秒間表示してから結果画面へ遷移する
     const timer = setTimeout(() => {
       navigate("/result", {
         state: {

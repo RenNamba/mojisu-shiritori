@@ -1,5 +1,5 @@
-import { Button, Stack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { Button, Stack } from "@chakra-ui/react";
 import { LOCAL_STORAGE_KEYS } from "../../constants/gameConstants";
 
 const SettingsActions = ({ settings, onReset }) => {
