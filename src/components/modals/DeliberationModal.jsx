@@ -1,9 +1,9 @@
-import { Box, Button, Heading, IconButton, Text } from "@chakra-ui/react";
-import { LuX } from "react-icons/lu";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import { GAME_STATUS } from "../../constants/gameConstants";
 import JudgeButtons from "../common/JudgeButtons";
 import HistoryList from "../common/HistoryList";
 import ModalOverlay from "./ModalOverlay";
+import { CloseButton } from "../ui/close-button";
 
 const DeliberationModal = ({ gameState, setGameState, settings }) => {
   if (gameState.gameStatus !== GAME_STATUS.DELIBERATION) return null;
@@ -25,16 +25,7 @@ const DeliberationModal = ({ gameState, setGameState, settings }) => {
   return (
     <ModalOverlay>
       <Box bg="white" borderRadius="lg" p={8} minW="300px" position="relative">
-        <IconButton
-          position="absolute"
-          top={2}
-          right={2}
-          variant="ghost"
-          size="sm"
-          onClick={handleClose}
-        >
-          <LuX />
-        </IconButton>
+        <CloseButton position="absolute" top={2} right={2} size="sm" onClick={handleClose} />
         <Heading size="md" mb={4} textAlign="center">
           審議
         </Heading>

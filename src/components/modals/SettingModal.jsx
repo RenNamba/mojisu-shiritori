@@ -1,8 +1,8 @@
-import { Box, Heading, IconButton } from "@chakra-ui/react";
-import { LuX } from "react-icons/lu";
+import { Box, Heading } from "@chakra-ui/react";
 import { GAME_STATUS } from "../../constants/gameConstants";
 import GameActions from "../common/GameActions";
 import ModalOverlay from "./ModalOverlay";
+import { CloseButton } from "../ui/close-button";
 
 const SettingModal = ({ gameState, setGameState }) => {
   if (gameState.gameStatus !== GAME_STATUS.SETTING) return null;
@@ -17,16 +17,7 @@ const SettingModal = ({ gameState, setGameState }) => {
   return (
     <ModalOverlay>
       <Box bg="white" borderRadius="lg" p={8} minW="300px" position="relative">
-        <IconButton
-          position="absolute"
-          top={2}
-          right={2}
-          variant="ghost"
-          size="sm"
-          onClick={handleClose}
-        >
-          <LuX />
-        </IconButton>
+        <CloseButton position="absolute" top={2} right={2} size="sm" onClick={handleClose} />
         <Heading size="md" mb={6} textAlign="center">
           メニュー
         </Heading>
