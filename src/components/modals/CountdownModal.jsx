@@ -9,15 +9,16 @@ const CountdownModal = ({ gameState, setGameState, settings }) => {
   useEffect(() => {
     if (gameState.gameStatus !== GAME_STATUS.COUNTDOWN) return;
 
-    // カウントダウン終了後にゲーム開始
-    // カウントが0の時にスタートが表示されるので、-1になったらゲーム開始とする
-    if (count === -1) {
-      setGameState((prev) => ({
-        ...prev,
-        gameStatus: GAME_STATUS.PLAYING,
-        currentCard: drawCard(settings.cards),
-      }));
-      return;
+    if (count === 0) {
+      // 「スタート！」を1秒表示してからゲーム開始
+      const timer = setTimeout(() => {
+        setGameState((prev) => ({
+          ...prev,
+          gameStatus: GAME_STATUS.PLAYING,
+          currentCard: drawCard(settings.cards),
+        }));
+      }, 1000);
+      return () => clearTimeout(timer);
     }
 
     const timer = setTimeout(() => {
@@ -43,7 +44,7 @@ const CountdownModal = ({ gameState, setGameState, settings }) => {
       zIndex={1000}
     >
       <Text fontSize="5xl" fontWeight="bold" color="white">
-        {count <= 0 ? "スタート！" : count}
+        {count === 0 ? "スタート！" : count}
       </Text>
     </Box>
   );
