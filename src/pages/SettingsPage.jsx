@@ -5,15 +5,11 @@ import PlayerSettings from "../components/settings/PlayerSettings";
 import GameTimeSettings from "../components/settings/GameTimeSettings";
 import CardSettings from "../components/settings/CardSettings";
 import SettingsActions from "../components/settings/SettingsActions";
-import { DEFAULT_SETTINGS } from "../constants/defaults";
-import { LOCAL_STORAGE_KEYS } from "../constants/gameConstants";
+import { loadSettings } from "../utils/settingsUtils";
 
 const SettingsPage = () => {
   // 初期設定はローカルストレージから読み込む。なければデフォルト設定を使用
-  const [settings, setSettings] = useState(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEYS.SETTINGS);
-    return saved ? JSON.parse(saved) : DEFAULT_SETTINGS;
-  });
+  const [settings, setSettings] = useState(loadSettings);
 
   const handleReset = () => {
     setSettings(DEFAULT_SETTINGS);

@@ -11,21 +11,14 @@ import DeliberationModal from "../components/modals/DeliberationModal";
 import SettingModal from "../components/modals/SettingModal";
 import GameEndModal from "../components/modals/GameEndModal";
 
-import { DEFAULT_SETTINGS, INITIAL_GAME_STATE } from "../constants/defaults";
-import {
-  LOCAL_STORAGE_KEYS,
-  GAME_STATUS,
-  PLAYER,
-  END_REASON,
-} from "../constants/gameConstants";
+import { INITIAL_GAME_STATE } from "../constants/defaults";
+import { GAME_STATUS, PLAYER, END_REASON } from "../constants/gameConstants";
 import { useInterval } from "../hooks/useInterval";
+import { loadSettings } from "../utils/settingsUtils";
 
 const GamePage = () => {
   // 設定をLocalStorageから読み込む
-  const [settings] = useState(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEYS.SETTINGS);
-    return saved ? JSON.parse(saved) : DEFAULT_SETTINGS;
-  });
+  const [settings] = useState(loadSettings);
 
   // ゲーム状態
   const [gameState, setGameState] = useState({
