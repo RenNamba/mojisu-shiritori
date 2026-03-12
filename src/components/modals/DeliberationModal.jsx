@@ -3,6 +3,7 @@ import { LuX } from "react-icons/lu";
 import { GAME_STATUS } from "../../constants/gameConstants";
 import JudgeButtons from "../common/JudgeButtons";
 import HistoryList from "../common/HistoryList";
+import ModalOverlay from "./ModalOverlay";
 
 const DeliberationModal = ({ gameState, setGameState, settings }) => {
   if (gameState.gameStatus !== GAME_STATUS.DELIBERATION) return null;
@@ -22,18 +23,7 @@ const DeliberationModal = ({ gameState, setGameState, settings }) => {
   };
 
   return (
-    <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      bottom={0}
-      bg="blackAlpha.700"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      zIndex={1000}
-    >
+    <ModalOverlay>
       <Box bg="white" borderRadius="lg" p={8} minW="300px" position="relative">
         <IconButton
           position="absolute"
@@ -64,7 +54,7 @@ const DeliberationModal = ({ gameState, setGameState, settings }) => {
           <HistoryList history={gameState.history} settings={settings} />
         </Box>
       </Box>
-    </Box>
+    </ModalOverlay>
   );
 };
 

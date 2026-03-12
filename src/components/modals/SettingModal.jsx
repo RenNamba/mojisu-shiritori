@@ -2,6 +2,7 @@ import { Box, Heading, IconButton } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
 import { GAME_STATUS } from "../../constants/gameConstants";
 import GameActions from "../common/GameActions";
+import ModalOverlay from "./ModalOverlay";
 
 const SettingModal = ({ gameState, setGameState }) => {
   if (gameState.gameStatus !== GAME_STATUS.SETTING) return null;
@@ -14,18 +15,7 @@ const SettingModal = ({ gameState, setGameState }) => {
   };
 
   return (
-    <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      bottom={0}
-      bg="blackAlpha.700"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      zIndex={1000}
-    >
+    <ModalOverlay>
       <Box bg="white" borderRadius="lg" p={8} minW="300px" position="relative">
         <IconButton
           position="absolute"
@@ -42,7 +32,7 @@ const SettingModal = ({ gameState, setGameState }) => {
         </Heading>
         <GameActions setGameState={setGameState} />
       </Box>
-    </Box>
+    </ModalOverlay>
   );
 };
 
