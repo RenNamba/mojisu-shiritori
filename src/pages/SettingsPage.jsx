@@ -5,6 +5,7 @@ import PlayerSettings from "../components/settings/PlayerSettings";
 import GameTimeSettings from "../components/settings/GameTimeSettings";
 import CardSettings from "../components/settings/CardSettings";
 import SettingsActions from "../components/settings/SettingsActions";
+import { DEFAULT_SETTINGS } from "../constants/defaults";
 import { loadSettings } from "../utils/settingsUtils";
 
 const SettingsPage = () => {
