@@ -1,6 +1,7 @@
 import { Button, Stack } from "@chakra-ui/react";
 import { GAME_STATUS, PLAYER, END_REASON } from "../../constants/gameConstants";
 import { drawCard } from "../../utils/gameUtils";
+import { isNEnding } from "../../utils/wordUtils";
 
 const JudgeButtons = ({
   gameState,
@@ -13,14 +14,13 @@ const JudgeButtons = ({
   const nextPlayer = currentPlayer === PLAYER.A ? PLAYER.B : PLAYER.A;
 
   const handleValid = () => {
-    // 「ん」で終わる単語かどうかを判定
-    const isNEnding = currentWord.endsWith("ん");
+    const nEnding = isNEnding(currentWord);
     const newHistory = [
       ...history,
       { id: crypto.randomUUID(), player: currentPlayer, word: currentWord },
     ];
 
-    if (isNEnding) {
+    if (nEnding) {
       setGameState((prev) => ({
         ...prev,
         history: newHistory,

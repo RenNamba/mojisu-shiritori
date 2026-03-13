@@ -70,3 +70,6 @@ export const validateWord = (word, cardConfig, history) => {
 
   return { valid: true, message: "" };
 };
+
+// 単語が「ん」で終わるかどうかを判定する
+export const isNEnding = (word) => word.endsWith("ん");
