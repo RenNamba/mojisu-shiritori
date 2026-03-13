@@ -1,16 +1,39 @@
-# React + Vite
+# 文字数しりとり
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+カードで指定された文字数条件に従って単語を答える、2人対戦のしりとりゲームです。
+同じ画面を見ながら対面で遊びます。
 
-Currently, two official plugins are available:
+**デモ:** https://mojisu-shiritori.ren-dev.workers.dev/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ゲームルール
 
-## React Compiler
+- 各ターンにカードを1枚引き、カードに対応する文字数条件（ちょうど / 範囲 / 以上）に従って単語を回答する
+- 各プレイヤーごとに回答時間が設けられており、0になった方が負け
+- 単語の終わりに「ん」がついても負け
+- 小文字（ょ、っ等）で終わった場合は大文字に変換、長音符（ー）で終わった場合は一文字前を次の頭文字とする
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 技術スタック
 
-## Expanding the ESLint configuration
+| カテゴリ                  | 技術                          |
+| ------------------------- | ----------------------------- |
+| フロントエンド            | React 19, React Router DOM 7  |
+| UI                        | Chakra UI 3, Framer Motion 12 |
+| テスト                    | Vitest                        |
+| ビルド                    | Vite 7                        |
+| ホスティング              | Cloudflare Workers            |
+| リンター / フォーマッター | ESLint 9, Prettier 3          |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## セットアップ
+
+```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
+npm run dev
+```
+
+## ドキュメント
+
+- [要件定義書](docs/requirements.md) — ゲームルール、画面仕様、データ設計
+- [テスト計画書](docs/test-plan.md) — 単体テスト仕様、結合テスト項目
