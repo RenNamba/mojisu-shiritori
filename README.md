@@ -3,7 +3,7 @@
 カードで指定された文字数条件に従って単語を答える、2人対戦のしりとりゲームです。
 同じ画面を見ながら対面で遊びます。
 
-**デモ:** https://mojisu-shiritori.ren-dev.workers.dev/
+**デモ:** https://mojisu-shiritori.pages.dev/
 
 ## ゲームルール
 
@@ -20,7 +20,7 @@
 | UI                        | Chakra UI 3, Framer Motion 12 |
 | テスト                    | Vitest                        |
 | ビルド                    | Vite 7                        |
-| ホスティング              | Cloudflare Workers            |
+| ホスティング              | Cloudflare Pages              |
 | リンター / フォーマッター | ESLint 9, Prettier 3          |
 | 開発支援                  | Claude Code                   |
 

@@ -8,7 +8,7 @@
 
 ### 1.1 成果物
 
-- アプリ URL（Cloudflare Workers にデプロイ）
+- アプリ URL（Cloudflare Pages にデプロイ）
 - GitHub リポジトリ
 - README
 - 設計書・テスト計画書
@@ -317,6 +317,6 @@
 | UI ライブラリ             | Chakra UI 3, Framer Motion 12 |
 | テスト                    | Vitest                        |
 | リンター / フォーマッター | ESLint 9, Prettier 3          |
-| デプロイ                  | Cloudflare Workers            |
+| デプロイ                  | Cloudflare Pages              |
 | リポジトリ                | GitHub                        |
 | 動作環境                  | モバイル・PC ブラウザ         |
