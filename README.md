@@ -22,6 +22,7 @@
 | ビルド                    | Vite 7                        |
 | ホスティング              | Cloudflare Workers            |
 | リンター / フォーマッター | ESLint 9, Prettier 3          |
+| 開発支援                  | Claude Code                   |
 
 ## セットアップ
 
